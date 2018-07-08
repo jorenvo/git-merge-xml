@@ -16,8 +16,8 @@ pub fn format_conflict(a: &str, b: &str) -> String {
 }
 
 fn merge_line_3_way(parent: &str, a: &str, b: &str) -> String {
-    let a_modified = !(parent == a);
-    let b_modified = !(parent == b);
+    let a_modified = parent != a;
+    let b_modified = parent != b;
 
     if a_modified && b_modified {
         format_conflict(a, b)
