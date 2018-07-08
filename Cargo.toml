@@ -1,0 +1,6 @@
+[package]
+name = "git-merge-xml"
+version = "0.1.0"
+authors = ["Joren Van Onder <jov@odoo.com>"]
+
+[dependencies]
