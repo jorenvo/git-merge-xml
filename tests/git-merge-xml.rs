@@ -63,8 +63,24 @@ fn test_multi_line_conflict_1() {
     assert_eq!(
         merge_3_way(parent, a, b),
         format!(
-            "pangolin\n{}\nelephant",
-            format_conflict("polar bear", "quokka")
+            "pangolin\n{}elephant",
+            format_conflict("polar bear\n", "quokka\n")
         )
     );
+}
+
+#[test]
+fn test_multi_line_delete_line_1() {
+    let parent = &format!("bear\nbunny");
+    let a = &format!("bear");
+
+    assert_eq!(merge_3_way(parent, a, parent), *a);
+}
+
+#[test]
+fn test_multi_line_delete_line_2() {
+    let parent = &format!("bear\nbunny\nhedgehog");
+    let a = &format!("bear\nhedgehog");
+
+    assert_eq!(merge_3_way(parent, a, parent), *a);
 }
